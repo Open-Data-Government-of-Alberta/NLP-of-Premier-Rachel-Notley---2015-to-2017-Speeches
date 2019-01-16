@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Premier Rachel Notley (Speeches 2015-2017)</title>
+    <!-- Dashboard Dependecies -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/keen/dashboards@gh-pages/assets/css/keen-dashboards.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <style>
+        .scroll-div { width: 100%; max-height: 300px; overflow-x: hidden; overflow-y: scroll; }
+        .selct-opts { margin-top: 1.2em; } 
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 50px;
+            right: 0px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            background-color: #999;
+            border-radius: 4px;
+            font: 1.0em 'Roboto', sans-serif;
+        }
+
+        #myBtn:hover {
+            background-color:black;
+        }
+
+        div#sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 50px;
+            width: 6%;
+            background-color: white;
+            font: 1em;
+            z-index: 10;
+            margin: 0 auto;
+            text-align: center;
+            border-style: solid;
+        }
+
+        div#sticky:hover {
+            background-color: whitesmoke;
+        }
+
+        div#tooltip {	
+            position: absolute;
+            text-align: center;			
+            max-width: 700px;				
+            max-height: 700px;								
+            font: 0.8em;
+            margin: 0 auto;
+            z-index: 10;
+            pointer-events: none;
+            left: 30%;
+            color: #fff;
+            background-color: black;
+            border-radius: 0.5em;
+            padding: 0.25em;
+        }
+    </style>
+</head>
+<body class="keen-dashboard" style="margin-top: 5.7em;">
+    <!-- Navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <span>
+                    <a class="navbar-brand" target="_blank" href="https://www.alberta.ca/premier-speeches.aspx">
+                        Rachel Notley (Speeches 2015 - 2017)
+                    </a>
+                    <select id="year-opts" class="selct-opts"></select>
+                    <select id="Title-opts" class="selct-opts"></select>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div id="sticky">
+        <a id="speech-link" href="" target="_blank">Speech Details</a>
+    </div>
+    <div id="detail"></div>
+    <div class="container-fluid container">
+        <div class="row">
+            <!-- column for row -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <!-- Viz 1 -->
+                    <div class="col-lg-12 col-md-12">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                nlp Tagged Terms (Word Cloud)
+                            </div>
+                            <div class="chart-stage">
+                                <div id="word-cloud" style="width: 100%; height: 650px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Parts of Speech Table -->
+                    <div class="col-lg-12 col-md-12">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                nlp Parts of Speech (Frequency List topK)
+                            </div>
+                            <div class="chart-stage">
+                                <div id="selct-opt"></div>
+                                <div class="scroll-wrapper">
+                                    <div class="scroll-div">
+                                        <div class="pos-list">
+                                            <table id="pos-table"></table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Viz 2 -->
+                    <div class="col-lg-12 col-md-12">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                nlp Parts of Speech (Tags and Terms Tree)
+                            </div>
+                            <div class="chart-stage">
+                                <div id="tree" style="width: 100%; height: 12000px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script src="https://unpkg.com/compromise@latest/builds/compromise.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@1.1.3/dist/echarts-wordcloud.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script lang="babel" type="text/babel" src="Js/index.min.js"></script>
+</body>
+</html>
