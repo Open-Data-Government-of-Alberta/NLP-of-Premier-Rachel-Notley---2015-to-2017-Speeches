@@ -1,4 +1,4 @@
-![](speeches.gif)<br>
+<a href="https://open-data-government-of-alberta.github.io/NLP-of-Premier-Rachel-Notley---2015-to-2017-Speeches/" target="_blank">![](speeches.gif)</a><br>
 Experimented with nlp-compromise, great nlp library for JavaScript.<br>
 <b>Tip: Don't have to wait for the whole word cloud to load to analyze frequency list and tags tree.</b><br>
 ## Credits
